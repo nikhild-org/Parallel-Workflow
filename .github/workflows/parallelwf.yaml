@@ -1,0 +1,33 @@
+name: Parallel Workflow Test
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test-python:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run Python tests
+        run: |
+          echo "Running Python tests..."
+          python --version
+
+  test-node:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run Node.js tests
+        run: |
+          echo "Running Node.js tests..."
+          node --version
